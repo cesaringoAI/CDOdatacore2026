@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Círculo de Oro · El caso financiero · Vanguardia MX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,700;1,9..144,900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #F2EFE7;
+  --bg-card: #FFFFFF;
+  --bg-dark: #0F0F0E;
+  --ink: #0F0F0E;
+  --ink-2: #4A4A47;
+  --ink-3: #8A8A85;
+  --rule: #1A1A18;
+  --rule-soft: #D6D2C7;
+  --accent: #D2371E;
+  --accent-dark: #A82815;
+  --accent-soft: #FCE8E3;
+  --positive: #1F4D2C;
+  --positive-soft: #DDE9DE;
+  --warning: #C08A2E;
+  --warning-soft: #F5EBD5;
+  --cyan: #0077AA;
+  --gold: #B89028;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4 { font-family: 'Fraunces', serif; font-weight: 500; letter-spacing: -0.02em; }
+.mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: "tnum" 1; }
+.display { font-family: 'Fraunces', serif; font-variation-settings: "opsz" 144; font-weight: 500; letter-spacing: -0.04em; line-height: 0.95; }
+.display-italic { font-family: 'Fraunces', serif; font-variation-settings: "opsz" 144; font-weight: 500; font-style: italic; letter-spacing: -0.03em; line-height: 1; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+/* HEAD BAR */
+.head-bar { border-bottom: 1px solid var(--rule); padding: 18px 0; position: sticky; top: 0; background: var(--bg); z-index: 100; }
+.head-bar-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.brand { font-family: 'Fraunces', serif; font-weight: 700; font-style: italic; font-size: 20px; letter-spacing: -0.02em; }
+.head-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+.head-meta::before { content: ""; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+
+/* SECTIONS */
+section { padding: 100px 0; border-top: 1px solid var(--rule); }
+section:first-of-type { border-top: none; }
+.section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+.section-kicker::before { content: ""; width: 32px; height: 1px; background: var(--accent); }
+.section-title { font-size: clamp(42px, 6vw, 88px); margin-bottom: 28px; max-width: 1000px; }
+.section-lead { font-size: 20px; line-height: 1.55; color: var(--ink-2); max-width: 740px; margin-bottom: 64px; }
+
+/* HERO */
+.hero { padding: 80px 0 120px; min-height: 85vh; display: flex; flex-direction: column; justify-content: center; border-top: none; }
+.hero-kicker { font-family: 'JetBrains Mono', monospace; font-size: 13px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 48px; display: flex; align-items: center; gap: 16px; }
+.hero-kicker::before, .hero-kicker::after { content: ""; flex: 1; height: 1px; background: var(--rule); max-width: 100px; }
+.hero-mark { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(80px, 14vw, 200px); line-height: 0.85; letter-spacing: -0.05em; margin-bottom: 32px; color: var(--gold); }
+.hero-mark .strike { position: relative; display: inline-block; }
+.hero-mark .strike::after { content: ""; position: absolute; left: -4%; right: -4%; top: 50%; height: 6px; background: var(--accent); transform: rotate(-3deg); }
+.hero-headline { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(32px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.02em; max-width: 1080px; margin-bottom: 36px; }
+.hero-headline .accent { color: var(--accent); }
+.hero-sub { font-size: 19px; color: var(--ink-2); max-width: 660px; line-height: 1.55; border-left: 3px solid var(--accent); padding-left: 20px; }
+
+/* PRODUCT INTRO STATS */
+.product-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 56px; }
+.prod-cell { background: var(--bg); padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; }
+.prod-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); }
+.prod-cell .value { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(40px, 4.5vw, 64px); line-height: 0.95; letter-spacing: -0.03em; margin: 20px 0 6px; }
+.prod-cell .value.gold { color: var(--gold); font-style: italic; }
+.prod-cell .note { font-size: 13px; color: var(--ink-2); line-height: 1.45; }
+
+/* EDITORIAL TRACK */
+.three-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 56px; }
+.pillar { background: var(--bg-card); padding: 40px 32px; }
+.pillar-num { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 48px; color: var(--gold); line-height: 1; letter-spacing: -0.03em; margin-bottom: 12px; }
+.pillar-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 24px; margin-bottom: 16px; letter-spacing: -0.01em; }
+.pillar-desc { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+
+/* ALERT BOX */
+.alert-box { border-left: 4px solid var(--accent); padding: 22px 30px; background: var(--accent-soft); margin: 32px 0; }
+.alert-box p { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(18px,2vw,22px); line-height: 1.4; color: var(--ink); }
+.alert-box p strong { font-style: normal; color: var(--accent); font-weight: 500; }
+
+/* PARADOX BIG NUMBERS — Sistema vs Real */
+.paradox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 64px; }
+.paradox-side { padding: 64px 56px; min-height: 380px; display: flex; flex-direction: column; justify-content: space-between; }
+.paradox-side.official { background: var(--positive-soft); }
+.paradox-side.real { background: var(--bg-dark); color: var(--bg); }
+.paradox-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 12px; }
+.paradox-side.real .paradox-label { color: rgba(242,239,231,.5); }
+.paradox-title { font-family: 'Fraunces', serif; font-style: italic; font-size: 24px; line-height: 1.2; margin-bottom: 40px; }
+.paradox-num { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(64px,10vw,144px); line-height: 0.9; letter-spacing: -0.05em; margin-bottom: 16px; }
+.paradox-num.pos { color: var(--positive); }
+.paradox-num.neg { color: var(--accent); font-style: italic; }
+.paradox-margin { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 500; margin-top: 8px; }
+.paradox-margin.pos { color: var(--positive); }
+.paradox-margin.neg { color: var(--accent); }
+.paradox-side.real .paradox-margin { color: var(--accent); }
+.paradox-note { font-size: 14px; line-height: 1.5; margin-top: 24px; opacity: 0.7; }
+
+/* COSTS BAR — Iceberg view */
+.iceberg-section { background: var(--bg-card); border: 1px solid var(--rule); padding: 56px 48px; margin-bottom: 56px; }
+.iceberg-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; }
+.iceberg-title { font-family: 'Fraunces', serif; font-style: italic; font-size: 28px; line-height: 1.2; }
+.iceberg-total { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--ink-3); }
+.iceberg-total strong { color: var(--accent); font-size: 22px; font-weight: 700; }
+
+.cost-stack { display: flex; flex-direction: column; gap: 4px; margin-bottom: 32px; }
+.cost-row { display: grid; grid-template-columns: 220px 1fr 140px; gap: 24px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--rule-soft); }
+.cost-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; }
+.cost-name .tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; padding: 2px 8px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
+.cost-name .tag.visible { background: var(--positive-soft); color: var(--positive); }
+.cost-name .tag.hidden { background: var(--accent-soft); color: var(--accent); }
+.cost-bar-wrap { position: relative; }
+.cost-bar { height: 32px; border-radius: 2px; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+.cost-bar.visible { background: var(--ink-2); }
+.cost-bar.hidden { background: var(--accent); }
+.cost-bar.hidden-major { background: var(--accent-dark); }
+.cost-val { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 500; text-align: right; }
+.cost-val.hidden { color: var(--accent); }
+
+.cost-summary { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid var(--rule); margin-top: 32px; }
+.cost-sum-cell { padding: 24px 28px; border-right: 1px solid var(--rule); }
+.cost-sum-cell:last-child { border-right: none; }
+.cost-sum-cell.total { background: var(--bg-dark); color: var(--bg); }
+.cost-sum-lab { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 10px; }
+.cost-sum-cell.total .cost-sum-lab { color: rgba(242,239,231,.5); }
+.cost-sum-val { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: 40px; line-height: 1; letter-spacing: -0.03em; }
+.cost-sum-val.acc { color: var(--accent); }
+
+/* NON-MONETARY COSTS */
+.invisible-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 32px; }
+.invisible-cell { background: var(--bg-card); padding: 36px 32px; }
+.inv-icon { font-family: 'Fraunces', serif; font-style: italic; font-size: 36px; color: var(--accent); line-height: 1; margin-bottom: 16px; }
+.inv-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin-bottom: 12px; letter-spacing: -0.01em; }
+.inv-desc { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+.inv-desc strong { color: var(--ink); font-weight: 600; }
+
+/* SCENARIO QUOTE — Decision pivot */
+.decision-quote { padding: 140px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg); position: relative; overflow: hidden; }
+.decision-quote::before { content: ""; position: absolute; left: 0; top: 50%; width: 6px; height: 50%; background: var(--accent); transform: translateY(-50%); }
+.decision-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 40px; }
+.decision-text { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: clamp(48px, 8vw, 128px); line-height: 1; letter-spacing: -0.04em; color: var(--ink); max-width: 1180px; }
+.decision-text .acc { color: var(--accent); }
+.decision-foot { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink-3); margin-top: 48px; letter-spacing: 0.12em; }
+
+/* THREE PATHS */
+.paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 64px; }
+.path-card { background: var(--bg-card); border: 1px solid var(--rule); padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.path-card.path-A { border-top: 8px solid var(--positive); }
+.path-card.path-B { border-top: 8px solid var(--accent); }
+.path-card.path-C { border-top: 8px solid var(--gold); }
+.path-head { padding: 32px 32px 24px; border-bottom: 1px solid var(--rule-soft); }
+.path-letter { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 80px; line-height: 0.85; letter-spacing: -0.04em; margin-bottom: 12px; }
+.path-card.path-A .path-letter { color: var(--positive); }
+.path-card.path-B .path-letter { color: var(--accent); }
+.path-card.path-C .path-letter { color: var(--gold); }
+.path-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 8px; }
+.path-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; }
+.path-name em { font-style: italic; color: var(--accent); }
+
+.path-body { padding: 28px 32px; flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.path-bottom-result { padding: 24px 32px; border-top: 1px solid var(--rule); background: var(--bg); }
+.path-result-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 6px; }
+.path-result-val { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: 36px; line-height: 1; letter-spacing: -0.03em; }
+.path-result-val.warn { color: var(--warning); }
+.path-result-val.neg { color: var(--accent); }
+.path-result-val.pos { color: var(--positive); }
+
+.path-section-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--rule-soft); }
+.path-list { list-style: none; padding: 0; margin: 0; }
+.path-list li { padding: 6px 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); padding-left: 18px; position: relative; }
+.path-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.path-list li strong { color: var(--ink); font-weight: 600; }
+
+.path-mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin: 4px 0; }
+.path-mini { background: var(--bg-card); padding: 14px 16px; }
+.path-mini .l { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 4px; }
+.path-mini .v { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600; }
+.path-mini .v.neg { color: var(--accent); }
+.path-mini .v.pos { color: var(--positive); }
+.path-mini .v.warn { color: var(--warning); }
+
+/* PATH DETAIL — Trimestral cost model */
+.cost-model { background: var(--bg-card); border: 1px solid var(--rule); padding: 40px 44px; margin-top: 48px; }
+.cm-head { font-family: 'Fraunces', serif; font-style: italic; font-size: 26px; margin-bottom: 8px; }
+.cm-sub { font-size: 14px; color: var(--ink-3); margin-bottom: 32px; font-family: 'JetBrains Mono', monospace; }
+.cm-rows { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 0; border-top: 1px solid var(--rule); }
+.cm-row { display: contents; }
+.cm-row > div { padding: 14px 16px; border-bottom: 1px solid var(--rule-soft); font-size: 14px; }
+.cm-row.head > div { background: var(--ink); color: var(--bg); font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; padding: 12px 16px; }
+.cm-row.total > div { background: var(--bg); font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; }
+.cm-row > div:nth-child(n+2) { font-family: 'JetBrains Mono', monospace; text-align: right; font-variant-numeric: tabular-nums; }
+.cm-row.total > div:nth-child(n+2) { font-size: 18px; }
+.cm-row > div.neg { color: var(--accent); }
+.cm-row > div.pos { color: var(--positive); }
+.cm-row > div.warn { color: var(--warning); }
+.cm-note { font-size: 13px; color: var(--ink-3); margin-top: 20px; line-height: 1.5; padding-top: 16px; border-top: 1px dashed var(--rule-soft); }
+
+/* COMPARATIVO FINAL TABLE */
+.compare-final { background: var(--bg-card); border: 1px solid var(--rule); margin-bottom: 48px; overflow: hidden; }
+.cf-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 0; border-bottom: 1px solid var(--rule-soft); }
+.cf-row:last-child { border-bottom: none; }
+.cf-row.head { background: var(--ink); color: var(--bg); }
+.cf-row > div { padding: 18px 24px; font-size: 15px; }
+.cf-row.head > div { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; padding: 16px 24px; }
+.cf-row > div:nth-child(n+2) { font-family: 'JetBrains Mono', monospace; text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.cf-row.metric .l { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; text-align: left; }
+.cf-cell-A { background: rgba(192, 138, 46, 0.04); }
+.cf-cell-B { background: rgba(210, 55, 30, 0.04); }
+.cf-cell-C { background: rgba(31, 77, 46, 0.04); }
+.cf-row.head .cf-cell-A { color: var(--warning); }
+.cf-row.head .cf-cell-B { color: var(--accent); }
+.cf-row.head .cf-cell-C { color: var(--positive); }
+.cf-num.neg { color: var(--accent); }
+.cf-num.pos { color: var(--positive); }
+.cf-num.warn { color: var(--warning); }
+.cf-row.verdict { background: var(--bg-dark); color: var(--bg); }
+.cf-row.verdict > div { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; padding: 24px; }
+.cf-row.verdict > div:first-child { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; font-style: normal; }
+
+/* TRADEOFFS */
+.tradeoffs-list { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--rule); margin-bottom: 48px; }
+.tradeoff { display: grid; grid-template-columns: 110px 1fr 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid var(--rule-soft); }
+.to-q { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); }
+.to-side { font-size: 15px; line-height: 1.55; color: var(--ink-2); padding-left: 24px; border-left: 3px solid transparent; }
+.to-side.pro { border-left-color: var(--positive); }
+.to-side.con { border-left-color: var(--accent); }
+.to-side strong { color: var(--ink); font-weight: 600; }
+.to-side .ml { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 8px; display: block; }
+.to-num { font-family: 'JetBrains Mono', monospace; font-style: italic; font-weight: 700; font-size: 28px; color: var(--accent); letter-spacing: -0.02em; line-height: 1; }
+
+/* CLOSING */
+.closing { background: var(--bg-dark); color: var(--bg); padding: 160px 0; border-top: none; }
+.closing-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 13px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 48px; display: flex; align-items: center; gap: 16px; }
+.closing-eyebrow::before { content: ""; width: 56px; height: 1px; background: var(--accent); }
+.closing-q { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(36px, 6vw, 92px); line-height: 1.05; letter-spacing: -0.02em; max-width: 1180px; margin-bottom: 48px; }
+.closing-q .acc { color: var(--accent); }
+.closing-body { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(20px,2.4vw,28px); line-height: 1.45; color: rgba(242,239,231,.78); max-width: 920px; margin-bottom: 32px; }
+.closing-body strong { color: var(--accent); font-weight: 500; }
+.closing-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(242,239,231,.4); margin-top: 96px; border-top: 1px solid rgba(242,239,231,.15); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s cubic-bezier(0.22,1,0.36,1), transform .8s cubic-bezier(0.22,1,0.36,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* AUDIENCE BAND — hero */
+.audience-band { display: flex; align-items: center; gap: 20px; padding: 20px 28px; background: var(--bg-card); border: 1px solid var(--rule); border-left: 6px solid var(--gold); margin: 20px 0 36px; flex-wrap: wrap; max-width: 880px; }
+.ab-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
+.ab-tags { display: flex; gap: 8px; align-items: center; }
+.ab-tag { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: 28px; line-height: 1; color: var(--gold); padding: 4px 14px; border: 1px solid var(--gold); border-radius: 2px; letter-spacing: -0.02em; }
+.ab-note { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; color: var(--ink-2); flex: 1; min-width: 280px; line-height: 1.4; font-style: italic; }
+
+/* EDITIONS TIMELINE — historia de 7 ediciones */
+.editions-timeline { background: var(--bg-card); border: 1px solid var(--rule); padding: 40px 44px; margin: 48px 0; }
+.et-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; padding-bottom: 24px; border-bottom: 1px solid var(--rule-soft); }
+.et-title { font-family: 'Fraunces', serif; font-style: italic; font-size: 28px; line-height: 1.2; max-width: 600px; }
+.et-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase; }
+.et-meta strong { color: var(--accent); font-weight: 700; }
+
+.et-list { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; position: relative; }
+.et-list::before { content: ""; position: absolute; left: 0; right: 0; top: 28px; height: 2px; background: linear-gradient(90deg, var(--gold) 0%, var(--accent) 100%); z-index: 0; }
+.et-item { padding: 0 8px; text-align: center; position: relative; z-index: 1; }
+.et-dot { width: 16px; height: 16px; background: var(--bg-card); border: 3px solid var(--gold); border-radius: 50%; margin: 20px auto 16px; position: relative; }
+.et-item:last-child .et-dot { border-color: var(--accent); background: var(--accent); }
+.et-item:last-child .et-year { color: var(--accent); }
+.et-year { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink-3); margin-bottom: 8px; font-weight: 600; letter-spacing: 0.05em; }
+.et-theme { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 15px; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }
+.et-foot { font-family: 'Fraunces', serif; font-style: italic; font-size: 16px; color: var(--ink-2); margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--rule-soft); line-height: 1.5; max-width: 880px; }
+.et-foot strong { color: var(--accent); font-weight: 500; font-style: normal; }
+
+/* ============ EDITORIAL RESULTS ============ */
+.edit-results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 56px; }
+.edit-cell { background: var(--bg); padding: 32px 28px; display: flex; flex-direction: column; justify-content: space-between; min-height: 180px; }
+.edit-cell.featured { background: var(--bg-dark); color: var(--bg); }
+.edit-cell.featured .ec-num { color: var(--accent); }
+.edit-cell.featured .ec-note { color: rgba(242,239,231,.6); }
+.edit-cell.featured .ec-label { color: rgba(242,239,231,.5); }
+.ec-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); }
+.ec-num { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(40px, 4.4vw, 60px); line-height: 0.95; letter-spacing: -0.03em; margin: 16px 0 6px; }
+.ec-num.gold { color: var(--gold); font-style: italic; }
+.ec-num.pos { color: var(--positive); }
+.ec-num.warn { color: var(--warning); }
+.ec-name { font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--ink-2); margin-bottom: 8px; }
+.ec-note { font-size: 12px; color: var(--ink-2); line-height: 1.4; }
+
+/* GROWTH CHART (2022-2025 ingresos) */
+.growth-chart { background: var(--bg-card); border: 1px solid var(--rule); padding: 40px 44px; margin-bottom: 56px; }
+.gc-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; }
+.gc-title { font-family: 'Fraunces', serif; font-style: italic; font-size: 26px; line-height: 1.2; }
+.gc-bars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: end; min-height: 240px; padding: 24px 0; border-bottom: 1px solid var(--rule-soft); }
+.gc-bar-wrap { display: flex; flex-direction: column; align-items: stretch; height: 100%; justify-content: end; gap: 8px; }
+.gc-bar { background: linear-gradient(180deg, var(--gold) 0%, #946F1F 100%); transition: height 1.2s cubic-bezier(0.22, 1, 0.36, 1); border-radius: 2px 2px 0 0; position: relative; }
+.gc-bar.current { background: linear-gradient(180deg, var(--accent) 0%, var(--accent-dark) 100%); }
+.gc-bar-val { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; letter-spacing: -0.02em; margin-bottom: 6px; text-align: center; }
+.gc-bar-year { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-3); text-align: center; padding-top: 12px; letter-spacing: 0.08em; }
+.gc-bar-contracts { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-3); text-align: center; }
+.gc-footer { display: flex; gap: 32px; padding-top: 24px; align-items: baseline; flex-wrap: wrap; }
+.gc-foot-cell { display: flex; flex-direction: column; }
+.gc-foot-lab { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 4px; }
+.gc-foot-val { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: 26px; color: var(--accent); letter-spacing: -0.02em; }
+
+/* TOP PIECES TABLE */
+.top-pieces { background: var(--bg-card); border: 1px solid var(--rule); margin: 32px 0; }
+.tp-row { display: grid; grid-template-columns: 60px 1fr 90px 90px 90px 90px; gap: 0; border-bottom: 1px solid var(--rule-soft); align-items: center; }
+.tp-row:last-child { border-bottom: none; }
+.tp-row.head { background: var(--ink); color: var(--bg); }
+.tp-row.head > div { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; padding: 14px 16px; }
+.tp-row > div { padding: 16px; }
+.tp-rank { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 28px; color: var(--gold); line-height: 1; }
+.tp-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 15px; line-height: 1.3; letter-spacing: -0.01em; }
+.tp-stat { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
+.tp-stat.acc { color: var(--accent); }
+.tp-stat.pos { color: var(--positive); }
+.tp-row.featured { background: var(--accent-soft); }
+.tp-row.sleeper { background: rgba(31,77,46,0.04); }
+.tp-row.sleeper .tp-rank { color: var(--positive); }
+
+/* PARETO BARS for editorial concentration */
+.pareto-bars-edit { margin: 32px 0; }
+.pareto-edit-row { display: grid; grid-template-columns: 180px 1fr 140px; gap: 24px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--rule-soft); }
+.pareto-edit-row:last-child { border-bottom: none; }
+.pareto-edit-lab { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; }
+.pareto-edit-lab .sub { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-3); margin-top: 2px; letter-spacing: 0.08em; }
+.pareto-edit-bar-wrap { background: var(--rule-soft); height: 28px; border-radius: 2px; position: relative; overflow: hidden; }
+.pareto-edit-bar { height: 100%; background: var(--accent); transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.pareto-edit-val { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 600; color: var(--accent); text-align: right; }
+
+/* FIDELITY PYRAMID */
+.fidelity-section { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; margin-bottom: 56px; }
+.fidelity-bars { display: flex; flex-direction: column; gap: 4px; }
+.fid-row { display: grid; grid-template-columns: 110px 1fr 100px; gap: 20px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--rule-soft); }
+.fid-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; }
+.fid-name.high { color: var(--accent); font-style: italic; }
+.fid-bar-wrap { display: flex; align-items: center; gap: 12px; }
+.fid-bar { height: 28px; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); border-radius: 2px; }
+.fid-bar.new { background: var(--ink-2); }
+.fid-bar.flyby { background: #5A5A55; }
+.fid-bar.wonback { background: var(--warning); }
+.fid-bar.casual { background: var(--accent); }
+.fid-bar.lover { background: var(--accent-dark); }
+.fid-bar.loyal { background: var(--positive); }
+.fid-pct { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-3); }
+.fid-value { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; text-align: right; }
+.fidelity-insight { background: var(--bg-card); border: 1px solid var(--rule); padding: 32px; }
+.fidelity-insight h3 { font-family: 'Fraunces', serif; font-style: italic; font-size: 24px; line-height: 1.2; margin-bottom: 20px; }
+.fidelity-key-stat { padding: 16px 0; border-top: 1px solid var(--rule-soft); display: flex; justify-content: space-between; align-items: baseline; }
+.fidelity-key-stat .l { font-size: 14px; color: var(--ink-2); }
+.fidelity-key-stat .v { font-family: 'Fraunces', serif; font-style: italic; font-size: 28px; color: var(--accent); font-weight: 500; letter-spacing: -0.02em; }
+.fidelity-insight-foot { font-size: 14px; color: var(--ink-2); line-height: 1.5; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--rule-soft); font-style: italic; font-family: 'Fraunces', serif; }
+
+/* YOY COMPARISON */
+.yoy-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 32px 0; }
+.yoy-cell { background: var(--bg-card); padding: 24px 22px; }
+.yoy-metric { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 12px; }
+.yoy-values { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+.yoy-old { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--ink-3); }
+.yoy-arrow { font-family: 'IBM Plex Sans', sans-serif; color: var(--ink-3); }
+.yoy-new { font-family: 'Fraunces', serif; font-weight: 500; font-size: 24px; letter-spacing: -0.02em; }
+.yoy-change { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; }
+.yoy-change.pos { color: var(--positive); }
+.yoy-change.neg { color: var(--accent); }
+
+/* COSTS VS INCOME BALANCE — Showcase visual */
+.balance-section { background: var(--bg-card); border: 1px solid var(--rule); padding: 56px 52px; margin: 48px 0; position: relative; }
+.balance-head { font-family: 'Fraunces', serif; font-style: italic; font-size: 30px; margin-bottom: 8px; line-height: 1.2; }
+.balance-sub { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink-3); margin-bottom: 40px; letter-spacing: 0.06em; }
+.balance-twin { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 32px; }
+.balance-col { background: var(--bg); padding: 36px 32px; display: flex; flex-direction: column; gap: 18px; }
+.balance-col.income { background: var(--positive-soft); }
+.balance-col.cost { background: var(--accent-soft); }
+.balance-col-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 4px; }
+.balance-col-total { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(48px, 6vw, 80px); line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 16px; }
+.balance-col.income .balance-col-total { color: var(--positive); }
+.balance-col.cost .balance-col-total { color: var(--accent); }
+.balance-items { display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,.1); }
+.balance-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; }
+.balance-item .l { color: var(--ink-2); flex: 1; padding-right: 16px; line-height: 1.35; }
+.balance-item .v { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-variant-numeric: tabular-nums; }
+.balance-item.subtotal { padding-top: 12px; margin-top: 4px; border-top: 1px dashed rgba(0,0,0,.15); font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; }
+.balance-item.subtotal .l { color: var(--ink); }
+.balance-item.subtotal .v { font-size: 16px; }
+
+.balance-result { background: var(--bg-dark); color: var(--bg); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.balance-result-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 22px; line-height: 1.3; max-width: 720px; }
+.balance-result-text strong { color: var(--accent); font-weight: 500; }
+.balance-result-num { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: clamp(48px, 5vw, 72px); line-height: 0.9; letter-spacing: -0.04em; color: var(--accent); }
+
+/* DUAL VIEW: Oficial vs Real */
+.dual-view { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 40px; }
+.dual-view-col { background: var(--bg); padding: 32px; }
+.dual-view-col.dark { background: var(--bg-dark); color: var(--bg); }
+.dual-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 14px; }
+.dual-view-col.dark .dual-head { color: rgba(242,239,231,.5); }
+.dual-formula { font-family: 'Fraunces', serif; font-style: italic; font-size: 18px; margin-bottom: 20px; line-height: 1.3; }
+.dual-formula .op { color: var(--accent); margin: 0 8px; font-weight: 500; }
+.dual-result-lab { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 6px; }
+.dual-view-col.dark .dual-result-lab { color: rgba(242,239,231,.5); }
+.dual-result-num { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: 48px; line-height: 1; letter-spacing: -0.03em; }
+.dual-result-num.pos { color: var(--positive); }
+.dual-result-num.neg { color: var(--accent); }
+
+/* RECURRENT CLIENTS */
+.clients-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+.client-tag { background: var(--bg-card); border: 1px solid var(--rule); padding: 14px 22px; font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; letter-spacing: -0.01em; }
+.client-tag .y { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); margin-left: 8px; vertical-align: middle; letter-spacing: 0.08em; }
+
+/* TEMAS / SUBJECTS GRID at closing */
+.themes-section { padding: 100px 0 0; border-top: 1px solid rgba(242,239,231,.15); margin-top: 64px; }
+.themes-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 24px; }
+.themes-head { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(36px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.02em; color: var(--bg); margin-bottom: 16px; max-width: 1080px; }
+.themes-head .acc { color: var(--accent); }
+.themes-lead { font-family: 'Fraunces', serif; font-size: clamp(18px, 2vw, 22px); line-height: 1.5; color: rgba(242,239,231,.65); max-width: 820px; margin-bottom: 64px; }
+
+.quarterly-themes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 80px; }
+.qt-card { background: rgba(242,239,231,.04); border: 1px solid rgba(242,239,231,.12); padding: 28px 24px; border-radius: 2px; }
+.qt-num { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 36px; line-height: 1; color: var(--accent); letter-spacing: -0.03em; margin-bottom: 12px; }
+.qt-quarter { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(242,239,231,.5); margin-bottom: 10px; }
+.qt-theme { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; color: var(--bg); margin-bottom: 12px; }
+.qt-desc { font-size: 13px; color: rgba(242,239,231,.6); line-height: 1.5; }
+
+.universe-themes-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 24px; }
+.universe-themes-sub { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(24px, 3vw, 36px); line-height: 1.2; color: var(--bg); max-width: 880px; margin-bottom: 40px; }
+.universe-themes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(242,239,231,.15); border: 1px solid rgba(242,239,231,.15); margin-bottom: 32px; }
+.ut-cell { background: var(--bg-dark); padding: 20px 20px; transition: background 0.3s ease; }
+.ut-cell:hover { background: rgba(210,55,30,.08); }
+.ut-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; line-height: 1.25; color: var(--bg); letter-spacing: -0.01em; }
+.ut-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* RESPONSIVE for new blocks */
+@media (max-width: 1024px) {
+  .edit-results-grid { grid-template-columns: repeat(2, 1fr); }
+  .yoy-grid { grid-template-columns: 1fr 1fr; }
+  .fidelity-section { grid-template-columns: 1fr; gap: 32px; }
+  .balance-twin { grid-template-columns: 1fr; }
+  .dual-view { grid-template-columns: 1fr; }
+  .quarterly-themes { grid-template-columns: 1fr 1fr; }
+  .universe-themes-grid { grid-template-columns: 1fr 1fr; }
+  .tp-row { grid-template-columns: 50px 1fr 80px 80px; }
+  .tp-row .tp-stat:nth-child(5), .tp-row .tp-stat:nth-child(6) { display: none; }
+  .tp-row.head > div:nth-child(5), .tp-row.head > div:nth-child(6) { display: none; }
+  .et-list { grid-template-columns: repeat(4, 1fr); gap: 20px 12px; }
+  .et-list::before { display: none; }
+  .et-dot { margin-top: 0; }
+}
+@media (max-width: 768px) {
+  .edit-results-grid { grid-template-columns: 1fr; }
+  .yoy-grid { grid-template-columns: 1fr; }
+  .gc-bars { grid-template-columns: repeat(4, 1fr); gap: 8px; min-height: 180px; }
+  .gc-bar-val { font-size: 16px; }
+  .quarterly-themes { grid-template-columns: 1fr; }
+  .universe-themes-grid { grid-template-columns: 1fr 1fr; }
+  .balance-section { padding: 36px 24px; }
+  .balance-col { padding: 28px 22px; }
+  .pareto-edit-row { grid-template-columns: 1fr; gap: 8px; }
+  .fid-row { grid-template-columns: 90px 1fr 70px; gap: 12px; }
+  .tp-row { grid-template-columns: 40px 1fr 70px; padding: 0; }
+  .tp-row > div { padding: 12px 8px; }
+  .tp-row .tp-stat:nth-child(4) { display: none; }
+  .tp-row.head > div:nth-child(4) { display: none; }
+  .audience-band { padding: 16px 20px; gap: 12px; }
+  .ab-tag { font-size: 22px; padding: 2px 10px; }
+  .editions-timeline { padding: 28px 22px; }
+  .et-list { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: repeat(2,1fr); }
+  .three-pillars { grid-template-columns: 1fr; }
+  .paradox-grid { grid-template-columns: 1fr; }
+  .invisible-grid { grid-template-columns: 1fr; }
+  .paths-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cost-row { grid-template-columns: 180px 1fr 110px; gap: 16px; }
+  .cost-summary { grid-template-columns: 1fr; }
+  .cost-sum-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+  .cm-rows { grid-template-columns: 1.2fr 1fr 1fr 1fr; }
+  .cf-row { grid-template-columns: 1.2fr 1fr 1fr 1fr; }
+  .tradeoff { grid-template-columns: 1fr; gap: 16px; }
+  .to-side { padding-left: 16px; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 22px; }
+  section { padding: 64px 0; }
+  .product-grid { grid-template-columns: 1fr; }
+  .paradox-side { padding: 40px 28px; min-height: auto; }
+  .iceberg-section { padding: 32px 24px; }
+  .cost-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 0; }
+  .cost-bar-wrap { width: 100%; }
+  .cost-val { text-align: left; }
+  .cm-rows { grid-template-columns: 1fr; }
+  .cm-rows .cm-row > div:not(:first-child) { text-align: left; padding-left: 24px; }
+  .cm-row.head { display: none; }
+  .cf-row { grid-template-columns: 1fr; }
+  .cf-row > div { text-align: left !important; padding: 8px 20px; }
+  .cf-row.head { display: none; }
+  .cf-row.metric { padding: 12px 0; border-bottom: 2px solid var(--rule); }
+  .decision-quote { padding: 80px 0; }
+  .closing { padding: 100px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEAD BAR -->
+<div class="head-bar">
+  <div class="container head-bar-inner">
+    <div class="brand">Círculo de Oro · Caso financiero 2025</div>
+    <div class="head-meta">Tres caminos · Una decisión</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-kicker reveal">Análisis interno · Vanguardia MX · Dic 2025</div>
+    <div class="hero-mark reveal">CDO <span class="strike">2025</span> <span style="color:var(--accent);font-style:italic;">¿2026?</span></div>
+    <div class="audience-band reveal">
+      <div class="ab-label">Producto premium dirigido a segmento</div>
+      <div class="ab-tags">
+        <span class="ab-tag">A</span>
+        <span class="ab-tag">B</span>
+        <span class="ab-tag">C+</span>
+      </div>
+      <div class="ab-note">Vertical de soft news para audiencia de alto poder adquisitivo · Saltillo y región</div>
+    </div>
+    <h1 class="hero-headline reveal">
+      Es un producto premium. Acumula <span class="accent">siete ediciones ininterrumpidas</span> en su segundo ciclo. Crece en ingresos cada año. Y sin embargo, <span class="accent">no es rentable.</span> Esto es lo que cuesta producirlo en realidad, y los tres caminos posibles que tenemos por delante.
+    </h1>
+    <p class="hero-sub reveal">
+      No es una decisión técnica: es una decisión sobre qué entendemos por <em>producto rentable</em>, qué activos protegemos y qué estamos dispuestos a sostener cuando las cifras dejan de cuadrar. Este documento no propone una respuesta. Propone una conversación honesta.
+    </p>
+  </div>
+</section>
+
+<!-- 01 · QUÉ ES CDO -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">01 · El producto</div>
+    <h2 class="section-title display reveal">Círculo de <em style="font-family:'Fraunces',serif;font-style:italic;color:var(--gold);">Oro</em>.</h2>
+    <p class="section-lead reveal">Vertical premium de soft news para segmento <strong>A/B y C+</strong>. Producto editorial anual de Vanguardia MX con perfiles de personas influyentes de Saltillo y la región. Rediseñado y relanzado en 2019, hoy acumula <strong>7 ediciones ininterrumpidas</strong> en su segundo ciclo. Identidad simbólica fuerte, crecimiento sostenido en ingresos, lectura editorial estable.</p>
+
+    <div class="product-grid reveal">
+      <div class="prod-cell">
+        <div class="label">Ediciones del 2º ciclo</div>
+        <div class="value gold">7</div>
+        <div class="note">Ininterrumpidas desde el relanzamiento en 2019. CDO 2019 a CDO 2025 publicadas. 2026 en evaluación.</div>
+      </div>
+      <div class="prod-cell">
+        <div class="label">Perfiles 2025</div>
+        <div class="value">29</div>
+        <div class="note">Personas que conectan e impactan en la comunidad de forma positiva y trascendente.</div>
+      </div>
+      <div class="prod-cell">
+        <div class="label">Contratos publicitarios</div>
+        <div class="value">41</div>
+        <div class="note">Anunciantes premium en la edición 2025. Tarifas Fundadores y no-Fundadores.</div>
+      </div>
+      <div class="prod-cell">
+        <div class="label">Crecimiento 2022→2025</div>
+        <div class="value">+88%</div>
+        <div class="note">$183K (2022) → $343K (2025) en ingresos por publicidad impresa. Tendencia sostenida en los últimos 4 años.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:28px;margin-bottom:24px;" class="reveal">Los tres ejes editoriales</h3>
+    <div class="three-pillars reveal">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Los perfiles</div>
+        <div class="pillar-desc">Personas que conectan e impactan en la comunidad de formas positiva y trascendente. La selección define la edición de cada año.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Las fotos</div>
+        <div class="pillar-desc">Sesiones conceptualizadas y personalizadas que buscan la espectacularidad. Producción visual de gama alta. Un componente central del valor percibido.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Las historias</div>
+        <div class="pillar-desc">Entrevistas en profundidad escritas por las mejores plumas de Vanguardia. El tratamiento narrativo es lo que separa CDO de cualquier directorio premium.</div>
+      </div>
+    </div>
+
+    <!-- TIMELINE 7 EDICIONES SEGUNDO CICLO -->
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:28px;margin:48px 0 18px;" class="reveal">Siete años, siete temáticas</h3>
+    <p style="font-size:16px;color:var(--ink-2);max-width:820px;margin-bottom:24px;" class="reveal">Desde el rediseño de 2018 y el relanzamiento de 2019, CDO ha publicado <strong>siete ediciones ininterrumpidas</strong>, cada una con un eje temático que define la curaduría editorial del año. La consistencia del producto es un activo en sí mismo: pocas publicaciones premium regionales sostienen esa cadencia sin interrupción.</p>
+
+    <div class="editions-timeline reveal">
+      <div class="et-head">
+        <div class="et-title">Las 7 ediciones del segundo ciclo · 2019–2025</div>
+        <div class="et-meta">Segundo ciclo · <strong>7 ediciones</strong> · sin interrupciones</div>
+      </div>
+      <div class="et-list">
+        <div class="et-item">
+          <div class="et-dot"></div>
+          <div class="et-year">2019</div>
+          <div class="et-theme">Mujeres que transforman e inspiran</div>
+        </div>
+        <div class="et-item">
+          <div class="et-dot"></div>
+          <div class="et-year">2020</div>
+          <div class="et-theme">Saltillenses de gran corazón</div>
+        </div>
+        <div class="et-item">
+          <div class="et-dot"></div>
+          <div class="et-year">2021</div>
+          <div class="et-theme">Personas que aman la tierra</div>
+        </div>
+        <div class="et-item">
+          <div class="et-dot"></div>
+          <div class="et-year">2022</div>
+          <div class="et-theme">Íconos de nuestro Saltillo</div>
+        </div>
+        <div class="et-item">
+          <div class="et-dot"></div>
+          <div class="et-year">2023</div>
+          <div class="et-theme">Only the young</div>
+        </div>
+        <div class="et-item">
+          <div class="et-dot"></div>
+          <div class="et-year">2024</div>
+          <div class="et-theme">Mentores de vida</div>
+        </div>
+        <div class="et-item">
+          <div class="et-dot"></div>
+          <div class="et-year">2025</div>
+          <div class="et-theme">Cook lovers</div>
+        </div>
+      </div>
+      <p class="et-foot">
+        Cada edición construye sobre la anterior. La curaduría temática anual ha sido el motor narrativo del segundo ciclo: <strong>de inspiración femenina a corazón regional, de tierra a íconos, de juventud a mentores, hasta la cocina como rito contemporáneo</strong>. Ese patrimonio editorial existe, mide y ya construyó audiencia. La conversación sobre el futuro de CDO no parte de cero: parte de siete años de oficio acumulado.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:32px;" class="reveal">
+      <div style="background:var(--bg-card);padding:32px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin-bottom:14px;">Performance editorial digital</div>
+        <div style="font-family:'Fraunces',serif;font-weight:500;font-size:48px;letter-spacing:-.03em;line-height:.9;">15,765</div>
+        <div style="font-size:14px;color:var(--ink-2);margin-top:6px;">páginas vistas</div>
+      </div>
+      <div style="background:var(--bg-card);padding:32px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin-bottom:14px;">&nbsp;</div>
+        <div style="font-family:'Fraunces',serif;font-weight:500;font-size:48px;letter-spacing:-.03em;line-height:.9;">11,901</div>
+        <div style="font-size:14px;color:var(--ink-2);margin-top:6px;">usuarios únicos</div>
+      </div>
+      <div style="background:var(--bg-card);padding:32px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin-bottom:14px;">&nbsp;</div>
+        <div style="font-family:'Fraunces',serif;font-weight:500;font-size:48px;letter-spacing:-.03em;line-height:.9;color:var(--positive);">41<span style="font-size:.55em;">%</span></div>
+        <div style="font-size:14px;color:var(--ink-2);margin-top:6px;">scroll promedio</div>
+      </div>
+    </div>
+
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink-2);margin-top:32px;max-width:780px;" class="reveal">
+      El producto funciona editorialmente. Eso no está en duda. La pregunta es qué tan honestamente estamos contabilizando lo que cuesta producirlo.
+    </p>
+  </div>
+</section>
+
+<!-- 02 · RESULTADOS EDITORIALES -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">02 · Resultados editoriales</div>
+    <h2 class="section-title display reveal">Qué tan bien<br>se está leyendo CDO.</h2>
+    <p class="section-lead reveal">Antes de hablar de dinero, conviene saber qué pasa cuando los lectores llegan al contenido. Las cifras de 2025 muestran un producto con alcance creciente, pero con profundidad de lectura que se está erosionando edición tras edición.</p>
+
+    <div class="edit-results-grid reveal">
+      <div class="edit-cell">
+        <div class="ec-label">Páginas vistas</div>
+        <div>
+          <div class="ec-num">15,765</div>
+          <div class="ec-name">en CDO 2025</div>
+          <div class="ec-note">Total acumulado de las 29 piezas publicadas durante el ciclo activo de la edición.</div>
+        </div>
+      </div>
+      <div class="edit-cell">
+        <div class="ec-label">Usuarios únicos</div>
+        <div>
+          <div class="ec-num pos">11,901</div>
+          <div class="ec-name">+24% vs 2024</div>
+          <div class="ec-note">El alcance creció. CDO 2024 acumulaba 9,597 usuarios. El reach mejora año tras año.</div>
+        </div>
+      </div>
+      <div class="edit-cell">
+        <div class="ec-label">Lectura por usuario</div>
+        <div>
+          <div class="ec-num">1m 49s</div>
+          <div class="ec-name">109 segundos por UU</div>
+          <div class="ec-note">El usuario que llega a CDO se queda casi dos minutos. Lectura media-alta para contenido editorial.</div>
+        </div>
+      </div>
+      <div class="edit-cell featured">
+        <div class="ec-label">Scroll ponderado por PV</div>
+        <div>
+          <div class="ec-num warn">20.55<span style="font-size:.6em;">%</span></div>
+          <div class="ec-name">cae −21% vs 2024</div>
+          <div class="ec-note">2024 era 26%. La señal más preocupante: más gente llega, menos gente termina de leer. Más alcance, menos profundidad.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARATIVA 2024 vs 2025 -->
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:26px;margin-bottom:18px;" class="reveal">Comparativa CDO 2024 vs CDO 2025</h3>
+    <div class="yoy-grid reveal">
+      <div class="yoy-cell">
+        <div class="yoy-metric">Usuarios únicos</div>
+        <div class="yoy-values">
+          <span class="yoy-old">9,597</span>
+          <span class="yoy-arrow">→</span>
+          <span class="yoy-new">11,901</span>
+        </div>
+        <div class="yoy-change pos">+24% en alcance</div>
+      </div>
+      <div class="yoy-cell">
+        <div class="yoy-metric">Páginas vistas / UU</div>
+        <div class="yoy-values">
+          <span class="yoy-old">1.30</span>
+          <span class="yoy-arrow">→</span>
+          <span class="yoy-new">1.48</span>
+        </div>
+        <div class="yoy-change pos">+14% recirculación</div>
+      </div>
+      <div class="yoy-cell">
+        <div class="yoy-metric">Scroll ponderado</div>
+        <div class="yoy-values">
+          <span class="yoy-old">26%</span>
+          <span class="yoy-arrow">→</span>
+          <span class="yoy-new">20.55%</span>
+        </div>
+        <div class="yoy-change neg">−21% en profundidad</div>
+      </div>
+      <div class="yoy-cell">
+        <div class="yoy-metric">Lectura promedio / PV</div>
+        <div class="yoy-values">
+          <span class="yoy-old">~95s</span>
+          <span class="yoy-arrow">→</span>
+          <span class="yoy-new">82s</span>
+        </div>
+        <div class="yoy-change neg">−14% en tiempo</div>
+      </div>
+    </div>
+
+    <div class="alert-box reveal">
+      <p>El producto <strong>llega a más gente</strong>, pero la gente <strong>se queda menos</strong>. Esa tensión define el momento actual: las decisiones de selección, narrativa y formato están atrayendo lectores que se desconectan antes de terminar. No es un problema de tráfico. Es un problema de retención.</p>
+    </div>
+
+    <!-- CONCENTRACIÓN PARETO -->
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:26px;margin:48px 0 18px;" class="reveal">La concentración del tráfico · Pareto editorial</h3>
+    <p style="font-size:16px;color:var(--ink-2);max-width:820px;margin-bottom:24px;" class="reveal">De los 29 perfiles publicados en 2025, una minoría concentra casi todo el consumo. Esto importa: significa que el valor editorial no se distribuye uniformemente. Algunos perfiles cargan al resto, otros pasan casi desapercibidos.</p>
+
+    <div class="pareto-bars-edit reveal">
+      <div class="pareto-edit-row">
+        <div class="pareto-edit-lab">Top 1 perfil<span class="sub">Jean Louis Cottin</span></div>
+        <div class="pareto-edit-bar-wrap"><div class="pareto-edit-bar" style="width: 23.7%"></div></div>
+        <div class="pareto-edit-val">23.7%</div>
+      </div>
+      <div class="pareto-edit-row">
+        <div class="pareto-edit-lab">Top 3 perfiles<span class="sub">3 de 29 = 10% del catálogo</span></div>
+        <div class="pareto-edit-bar-wrap"><div class="pareto-edit-bar" style="width: 48.8%"></div></div>
+        <div class="pareto-edit-val">48.8%</div>
+      </div>
+      <div class="pareto-edit-row">
+        <div class="pareto-edit-lab">Top 10 perfiles<span class="sub">10 de 29 = 34% del catálogo</span></div>
+        <div class="pareto-edit-bar-wrap"><div class="pareto-edit-bar" style="width: 80.6%"></div></div>
+        <div class="pareto-edit-val">80.6%</div>
+      </div>
+      <div class="pareto-edit-row">
+        <div class="pareto-edit-lab">Resto<span class="sub">19 perfiles = 66% del catálogo</span></div>
+        <div class="pareto-edit-bar-wrap"><div class="pareto-edit-bar" style="width: 19.4%; background: var(--ink-3);"></div></div>
+        <div class="pareto-edit-val" style="color: var(--ink-3);">19.4%</div>
+      </div>
+    </div>
+
+    <!-- TOP PIEZAS + SLEEPERS -->
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:26px;margin:48px 0 18px;" class="reveal">Los que dominan y los que esconden valor</h3>
+    <div class="top-pieces reveal">
+      <div class="tp-row head">
+        <div></div>
+        <div>Perfil</div>
+        <div style="text-align:right;">PV</div>
+        <div style="text-align:right;">% total</div>
+        <div style="text-align:right;">Lect/UU</div>
+        <div style="text-align:right;">Scroll</div>
+      </div>
+      <div class="tp-row featured">
+        <div class="tp-rank">01</div>
+        <div class="tp-title">Jean Louis Cottin <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-3);">— pieza líder</span></div>
+        <div class="tp-stat acc">3,730</div>
+        <div class="tp-stat acc">23.7%</div>
+        <div class="tp-stat">~110s</div>
+        <div class="tp-stat">~22%</div>
+      </div>
+      <div class="tp-row">
+        <div class="tp-rank">02</div>
+        <div class="tp-title">Top 2 perfil</div>
+        <div class="tp-stat">~2,400</div>
+        <div class="tp-stat">15.2%</div>
+        <div class="tp-stat">~105s</div>
+        <div class="tp-stat">~24%</div>
+      </div>
+      <div class="tp-row">
+        <div class="tp-rank">03</div>
+        <div class="tp-title">Top 3 perfil</div>
+        <div class="tp-stat">~1,560</div>
+        <div class="tp-stat">9.9%</div>
+        <div class="tp-stat">~100s</div>
+        <div class="tp-stat">~21%</div>
+      </div>
+      <div class="tp-row sleeper">
+        <div class="tp-rank">★</div>
+        <div class="tp-title">Sergio y Cristina <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--positive);">— sleeper / joya oculta</span></div>
+        <div class="tp-stat">84</div>
+        <div class="tp-stat">0.5%</div>
+        <div class="tp-stat pos">157s</div>
+        <div class="tp-stat pos">~58%</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-3);font-style:italic;max-width:880px;margin-top:16px;" class="reveal">
+      Los sleepers son piezas con bajo tráfico pero altísima profundidad de lectura. Cuando alguien las encuentra, las consume completas. Indican que el problema de algunos perfiles no es la calidad: es la circulación. Hay valor enterrado en el catálogo.
+    </p>
+
+    <!-- FIDELIDAD AUDIENCIA -->
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:26px;margin:48px 0 18px;" class="reveal">La audiencia que llega · distribución por fidelidad</h3>
+    <div class="fidelity-section reveal">
+      <div class="fidelity-bars">
+        <div class="fid-row">
+          <div class="fid-name">New</div>
+          <div class="fid-bar-wrap"><div class="fid-bar new" style="width: 100%"></div><div class="fid-pct">69.9%</div></div>
+          <div class="fid-value">8,319 UU</div>
+        </div>
+        <div class="fid-row">
+          <div class="fid-name">Fly by</div>
+          <div class="fid-bar-wrap"><div class="fid-bar flyby" style="width: 28%"></div><div class="fid-pct">19.6%</div></div>
+          <div class="fid-value">2,333 UU</div>
+        </div>
+        <div class="fid-row">
+          <div class="fid-name">Casual</div>
+          <div class="fid-bar-wrap"><div class="fid-bar casual" style="width: 9%"></div><div class="fid-pct">6.3%</div></div>
+          <div class="fid-value">750 UU</div>
+        </div>
+        <div class="fid-row">
+          <div class="fid-name high">Lover</div>
+          <div class="fid-bar-wrap"><div class="fid-bar lover" style="width: 3.5%"></div><div class="fid-pct">2.45%</div></div>
+          <div class="fid-value">292 UU</div>
+        </div>
+        <div class="fid-row">
+          <div class="fid-name high">Loyal</div>
+          <div class="fid-bar-wrap"><div class="fid-bar loyal" style="width: 2.3%"></div><div class="fid-pct">1.64%</div></div>
+          <div class="fid-value">195 UU</div>
+        </div>
+      </div>
+      <div class="fidelity-insight">
+        <h3>Casi 70% son lectores nuevos.<br>Casi nadie regresa.</h3>
+        <p style="font-size:15px;color:var(--ink-2);line-height:1.55;">CDO atrae públicos a través de redes y búsquedas, pero apenas un 4% representa audiencia con vínculo recurrente con el medio. Esto es típico de productos premium con baja recirculación.</p>
+        <div class="fidelity-key-stat">
+          <span class="l">Núcleo fiel (Lover + Loyal)</span>
+          <span class="v">487 UU</span>
+        </div>
+        <div class="fidelity-key-stat">
+          <span class="l">% del total</span>
+          <span class="v">4.09%</span>
+        </div>
+        <div class="fidelity-insight-foot">
+          La cifra dice algo importante: CDO no está construyendo comunidad de lectores propia. Funciona como aparición editorial brillante, no como hábito.
+        </div>
+      </div>
+    </div>
+
+    <!-- CRECIMIENTO INGRESOS 2022-2025 -->
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:26px;margin:56px 0 18px;" class="reveal">Y comercialmente · cuatro años de crecimiento sostenido</h3>
+    <div class="growth-chart reveal">
+      <div class="gc-head">
+        <div class="gc-title">Ingresos por publicidad impresa · 2022–2025</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-3);">Cifras sin IVA · MXN</div>
+      </div>
+      <div class="gc-bars">
+        <div class="gc-bar-wrap">
+          <div class="gc-bar-val">$182.8K</div>
+          <div class="gc-bar" style="height: 53%"></div>
+          <div class="gc-bar-year">2022</div>
+          <div class="gc-bar-contracts">edición 1</div>
+        </div>
+        <div class="gc-bar-wrap">
+          <div class="gc-bar-val">$260.6K</div>
+          <div class="gc-bar" style="height: 76%"></div>
+          <div class="gc-bar-year">2023</div>
+          <div class="gc-bar-contracts">edición 2</div>
+        </div>
+        <div class="gc-bar-wrap">
+          <div class="gc-bar-val">$308.1K</div>
+          <div class="gc-bar" style="height: 90%"></div>
+          <div class="gc-bar-year">2024</div>
+          <div class="gc-bar-contracts">edición 3</div>
+        </div>
+        <div class="gc-bar-wrap">
+          <div class="gc-bar-val">$343.5K</div>
+          <div class="gc-bar current" style="height: 100%"></div>
+          <div class="gc-bar-year">2025</div>
+          <div class="gc-bar-contracts">edición 4 · 41 contratos</div>
+        </div>
+      </div>
+      <div class="gc-footer">
+        <div class="gc-foot-cell">
+          <div class="gc-foot-lab">Crecimiento acumulado 4 años</div>
+          <div class="gc-foot-val">+88%</div>
+        </div>
+        <div class="gc-foot-cell">
+          <div class="gc-foot-lab">CAGR (tasa anual)</div>
+          <div class="gc-foot-val">+23.4%</div>
+        </div>
+        <div class="gc-foot-cell">
+          <div class="gc-foot-lab">Ticket promedio 2025</div>
+          <div class="gc-foot-val">$9,000</div>
+        </div>
+        <div class="gc-foot-cell">
+          <div class="gc-foot-lab">% venta a crédito</div>
+          <div class="gc-foot-val">70%</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:24px;margin:48px 0 16px;" class="reveal">Clientes recurrentes identificados</h3>
+    <p style="font-size:15px;color:var(--ink-2);max-width:820px;margin-bottom:16px;" class="reveal">Anunciantes con presencia en múltiples ediciones de CDO. Son el núcleo "Fundador" del producto y la relación más sensible ante cualquier cambio de formato.</p>
+    <div class="clients-row reveal">
+      <div class="client-tag">CAPRICUS <span class="y">×4 ediciones</span></div>
+      <div class="client-tag">AL SUPER <span class="y">×4 ediciones</span></div>
+      <div class="client-tag">POUR LA FRANCE <span class="y">×4 ediciones</span></div>
+      <div class="client-tag">CHELSEA LOFT <span class="y">×3 ediciones</span></div>
+      <div class="client-tag">CIMACO <span class="y">×3 ediciones</span></div>
+      <div class="client-tag">COPROFESA <span class="y">×3 ediciones</span></div>
+    </div>
+
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink-2);margin-top:40px;max-width:820px;" class="reveal">
+      Editorialmente el alcance crece pero la profundidad cae. Comercialmente los ingresos suben pero no cierran la brecha del costo real. Las dos curvas funcionan, pero ninguna funciona <em>suficiente</em>. Y eso es lo que pone la conversación sobre la mesa.
+    </p>
+  </div>
+</section>
+
+<!-- 03 · LA PARADOJA -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">03 · La paradoja contable</div>
+    <h2 class="section-title display reveal">Mismo producto.<br>Dos respuestas.</h2>
+    <p class="section-lead reveal">El sistema interno dice que CDO ganó $43K en 2025. La contabilidad completa dice que perdió $350K. La diferencia entre las dos respuestas no es una opinión: es exactamente lo que el sistema oficial no contabiliza pero la empresa sí está pagando.</p>
+
+    <div class="paradox-grid reveal">
+      <div class="paradox-side official">
+        <div>
+          <div class="paradox-label">Lo que reporta el sistema oficial</div>
+          <div class="paradox-title">Solo costos directos documentados.<br>El ingreso publicitario aparece como ganancia.</div>
+        </div>
+        <div>
+          <div class="paradox-num pos">+$43,075</div>
+          <div class="paradox-margin pos">Margen +10.9%</div>
+          <div class="paradox-note">$393,744 ingresos − $350,669 costos directos. La cifra que sostiene la decisión de seguir produciendo el formato.</div>
+        </div>
+      </div>
+      <div class="paradox-side real">
+        <div>
+          <div class="paradox-label">Lo que dice la contabilidad completa</div>
+          <div class="paradox-title">Mismos ingresos, costos reales:<br>nómina, hardware, cortesías, regalos.</div>
+        </div>
+        <div>
+          <div class="paradox-num neg">−$349,972</div>
+          <div class="paradox-margin neg">Margen −88.9%</div>
+          <div class="paradox-note">$393,744 ingresos − $743,716 costo total real. La pérdida que la empresa absorbe cada año sin nombrarla.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-box reveal">
+      <p>El problema central es <strong>contable, no comercial</strong>. Estamos tomando el ingreso publicitario como ganancia. Y no lo es. Apenas cubre la mitad del costo verdadero. La diferencia —<strong>$393K en costos ocultos</strong>— equivale al 53% del costo total real. Sin reconocerla, cualquier decisión sobre el futuro de CDO parte de una premisa falsa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · ANATOMÍA DE COSTOS -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">04 · Anatomía de los costos</div>
+    <h2 class="section-title display reveal">Lo que vemos.<br>Y lo que no.</h2>
+    <p class="section-lead reveal">Los costos directos están documentados en facturas: impresión, fotografía, gratificaciones. Los costos ocultos están en las nóminas, en los regalos no registrados, en las horas que no se prorratean al producto. Existen igual. Y suman más que los costos visibles.</p>
+
+    <div class="iceberg-section reveal">
+      <div class="iceberg-head">
+        <div class="iceberg-title">Costo total real · CDO 2025</div>
+        <div class="iceberg-total">Costo anual: <strong>$743,716</strong></div>
+      </div>
+
+      <div class="cost-stack">
+        <div class="cost-row">
+          <div class="cost-name">Nómina del equipo<span class="tag hidden">oculto</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar hidden-major" style="width: 100%"></div></div>
+          <div class="cost-val hidden">$300,600</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Impresión + IVA<span class="tag visible">visible</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar visible" style="width: 63%"></div></div>
+          <div class="cost-val">$190,240</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Fotografía + IVA<span class="tag visible">visible</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar visible" style="width: 42%"></div></div>
+          <div class="cost-val">$127,600</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Otros ocultos (comisiones, oficina)<span class="tag hidden">oculto</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar hidden" style="width: 21%"></div></div>
+          <div class="cost-val hidden">$63,947</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Gratificaciones<span class="tag visible">visible</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar visible" style="width: 5.6%"></div></div>
+          <div class="cost-val">$16,995</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Hardware y software<span class="tag hidden">oculto</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar hidden" style="width: 4.1%"></div></div>
+          <div class="cost-val hidden">$12,500</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Cortesías (100 revistas)<span class="tag hidden">oculto</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar hidden" style="width: 3.6%"></div></div>
+          <div class="cost-val hidden">$11,000</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Pauta digital<span class="tag visible">visible</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar visible" style="width: 2.5%"></div></div>
+          <div class="cost-val">$7,500</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Impresión personalizada<span class="tag visible">visible</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar visible" style="width: 1.9%"></div></div>
+          <div class="cost-val">$5,684</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Regalos a entrevistados<span class="tag hidden">oculto</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar hidden" style="width: 1.6%"></div></div>
+          <div class="cost-val hidden">$5,000</div>
+        </div>
+        <div class="cost-row">
+          <div class="cost-name">Viáticos<span class="tag visible">visible</span></div>
+          <div class="cost-bar-wrap"><div class="cost-bar visible" style="width: 0.5%"></div></div>
+          <div class="cost-val">$1,400</div>
+        </div>
+      </div>
+
+      <div class="cost-summary">
+        <div class="cost-sum-cell">
+          <div class="cost-sum-lab">Visible · documentado</div>
+          <div class="cost-sum-val">$350,669</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-3);margin-top:6px;">47% del costo real</div>
+        </div>
+        <div class="cost-sum-cell">
+          <div class="cost-sum-lab">Oculto · no documentado</div>
+          <div class="cost-sum-val acc">$393,047</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);margin-top:6px;">53% del costo real</div>
+        </div>
+        <div class="cost-sum-cell total">
+          <div class="cost-sum-lab">Costo total CDO 2025</div>
+          <div class="cost-sum-val" style="color:var(--bg);">$743,716</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(242,239,231,.6);margin-top:6px;">Lo que la empresa paga realmente</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:26px;margin:48px 0 18px;" class="reveal">Detalle de la nómina · ¿de dónde sale el $300K?</h3>
+    <p style="font-size:16px;color:var(--ink-2);max-width:880px;margin-bottom:24px;" class="reveal">Cuando CDO entra en sus 14 semanas activas, el equipo no se materializa de la nada: deja de hacer otras cosas. La coordinación deja proyectos digitales, las redactoras pausan iniciativas, diseño deja maquetas. Con tasas reales de mercado para los roles involucrados, prorrateados por dedicación real:</p>
+
+    <div style="background:var(--bg-card);border:1px solid var(--rule);padding:0;margin-bottom:24px;" class="reveal">
+      <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;background:var(--ink);color:var(--bg);">
+        <div style="padding:14px 24px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;">Rol</div>
+        <div style="padding:14px 24px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;text-align:center;">Personas</div>
+        <div style="padding:14px 24px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;">Dedicación</div>
+        <div style="padding:14px 24px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;text-align:right;">Costo</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;border-bottom:1px solid var(--rule-soft);">
+        <div style="padding:14px 24px;font-family:'Fraunces',serif;font-weight:500;">Coordinación editorial (CDO + 360)</div>
+        <div style="padding:14px 24px;text-align:center;font-family:'JetBrains Mono',monospace;">1</div>
+        <div style="padding:14px 24px;font-size:14px;color:var(--ink-2);">14 semanas alta · 38 semanas media</div>
+        <div style="padding:14px 24px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;">$108,000</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;border-bottom:1px solid var(--rule-soft);">
+        <div style="padding:14px 24px;font-family:'Fraunces',serif;font-weight:500;">Redactoras y plumas (entrevistas)</div>
+        <div style="padding:14px 24px;text-align:center;font-family:'JetBrains Mono',monospace;">7</div>
+        <div style="padding:14px 24px;font-size:14px;color:var(--ink-2);">2-4 perfiles c/u · 14 semanas</div>
+        <div style="padding:14px 24px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;">$84,000</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;border-bottom:1px solid var(--rule-soft);">
+        <div style="padding:14px 24px;font-family:'Fraunces',serif;font-weight:500;">Diseño y maquetación</div>
+        <div style="padding:14px 24px;text-align:center;font-family:'JetBrains Mono',monospace;">3</div>
+        <div style="padding:14px 24px;font-size:14px;color:var(--ink-2);">10 semanas intensivas</div>
+        <div style="padding:14px 24px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;">$48,000</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;border-bottom:1px solid var(--rule-soft);">
+        <div style="padding:14px 24px;font-family:'Fraunces',serif;font-weight:500;">Dirección editorial</div>
+        <div style="padding:14px 24px;text-align:center;font-family:'JetBrains Mono',monospace;">1</div>
+        <div style="padding:14px 24px;font-size:14px;color:var(--ink-2);">Supervisión y aprobaciones</div>
+        <div style="padding:14px 24px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;">$36,000</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;border-bottom:1px solid var(--rule-soft);">
+        <div style="padding:14px 24px;font-family:'Fraunces',serif;font-weight:500;">Comercial y ventas (proporción)</div>
+        <div style="padding:14px 24px;text-align:center;font-family:'JetBrains Mono',monospace;">3</div>
+        <div style="padding:14px 24px;font-size:14px;color:var(--ink-2);">Negociación 41 contratos</div>
+        <div style="padding:14px 24px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;">$24,600</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;background:var(--bg);">
+        <div style="padding:18px 24px;font-family:'Fraunces',serif;font-weight:500;font-size:17px;">Subtotal equipo core (~39 personas activas)</div>
+        <div style="padding:18px 24px;"></div>
+        <div style="padding:18px 24px;"></div>
+        <div style="padding:18px 24px;text-align:right;font-family:'Fraunces',serif;font-style:italic;font-size:22px;font-weight:500;color:var(--accent);">$300,600</div>
+      </div>
+    </div>
+
+    <p style="font-size:14px;color:var(--ink-3);font-style:italic;max-width:880px;" class="reveal">
+      Una estimación más conservadora (cálculo manual a $68/hr, salario base $12K/mes ÷ 8h ÷ 22d, escalado por horas reales × 70 personas) arroja ~$105K. Esa cifra es válida como piso mínimo, pero subestima a quienes dedican meses —no horas— al producto. La realidad ronda los $300K.
+    </p>
+
+    <!-- VERDAD INCÓMODA: no sabemos cuánto cuesta exactamente -->
+    <div style="background:var(--bg-dark); color:var(--bg); border:1px solid var(--rule); padding:48px 52px; margin:48px 0 0; position:relative;" class="reveal">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:24px;">La verdad incómoda</div>
+      <h3 style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(28px,3.8vw,44px);line-height:1.1;letter-spacing:-0.02em;color:var(--bg);margin-bottom:24px;max-width:900px;">
+        En realidad, <span style="color:var(--accent);">no sabemos con precisión cuánto cuesta CDO</span>. Las cifras anteriores son la mejor aproximación que la organización tiene hoy. No son una contabilidad analítica certificada.
+      </h3>
+      <p style="font-size:17px;line-height:1.6;color:rgba(242,239,231,.78);max-width:920px;margin-bottom:20px;">
+        Vanguardia no opera con contabilidad por producto. Los costos directos están en facturas. Los costos ocultos se infieren prorrateando nómina, oficina, herramientas y comisiones según dedicación estimada. El rango razonable de costo real de CDO 2025 va de <strong style="color:var(--accent);">$548K (lectura conservadora con nómina mínima)</strong> a <strong style="color:var(--accent);">$743K (lectura completa con tasas de mercado)</strong>. La cifra exacta podría estar en cualquier punto entre las dos.
+      </p>
+      <p style="font-size:17px;line-height:1.6;color:rgba(242,239,231,.78);max-width:920px;">
+        Esto importa porque <strong style="color:var(--bg);">sin saber con precisión cuánto cuesta un producto, no se puede trazar con confianza el camino a la rentabilidad</strong>. Cualquier ruta —reformular, sostener o cerrar— se diseña sobre cifras estimadas. La primera deuda no es financiera: es de visibilidad. Necesitamos contabilidad analítica real por producto editorial. Sin eso, todo cálculo a futuro arrastra el mismo defecto del presente.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · COSTOS VS INGRESOS · BALANCE CLARO -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">05 · Costos vs Ingresos</div>
+    <h2 class="section-title display reveal">El balance, sin maquillaje.</h2>
+    <p class="section-lead reveal">La forma más limpia de ver el problema es poner los dos lados de la moneda uno frente al otro. A la izquierda, todo lo que CDO genera. A la derecha, todo lo que CDO cuesta. La diferencia es la conversación que tenemos que tener.</p>
+
+    <div class="balance-section reveal">
+      <div class="balance-head">CDO 2025 · Balance completo</div>
+      <div class="balance-sub">Contabilidad total · incluye costos directos y ocultos</div>
+
+      <div class="balance-twin">
+        <div class="balance-col income">
+          <div>
+            <div class="balance-col-head">+ Ingresos</div>
+            <div class="balance-col-total">$393,744</div>
+          </div>
+          <div class="balance-items">
+            <div class="balance-item">
+              <span class="l">Publicidad impresa (41 contratos)</span>
+              <span class="v">$339,200</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Venta de producto (ejemplares)</span>
+              <span class="v">$54,272</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Publicidad programática</span>
+              <span class="v" style="color:var(--ink-3);">sin datos</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Patrocinios temáticos</span>
+              <span class="v" style="color:var(--ink-3);">$0</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Newsletter / digital exclusivo</span>
+              <span class="v" style="color:var(--ink-3);">$0</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Eventos asociados</span>
+              <span class="v" style="color:var(--ink-3);">$0</span>
+            </div>
+            <div class="balance-item subtotal">
+              <span class="l">Total ingresos con IVA</span>
+              <span class="v">$393,744</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="balance-col cost">
+          <div>
+            <div class="balance-col-head">− Costos reales</div>
+            <div class="balance-col-total">$743,716</div>
+          </div>
+          <div class="balance-items">
+            <div class="balance-item">
+              <span class="l">Nómina del equipo (~39 personas)</span>
+              <span class="v">$300,600</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Impresión + IVA (tiraje principal)</span>
+              <span class="v">$190,240</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Fotografía + IVA</span>
+              <span class="v">$127,600</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Comisiones, oficina, otros ocultos</span>
+              <span class="v">$63,947</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Gratificaciones · pauta · viáticos</span>
+              <span class="v">$25,895</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Hardware y software</span>
+              <span class="v">$12,500</span>
+            </div>
+            <div class="balance-item">
+              <span class="l">Cortesías + regalos + impresión personal</span>
+              <span class="v">$22,934</span>
+            </div>
+            <div class="balance-item subtotal">
+              <span class="l">Total costo real</span>
+              <span class="v">$743,716</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="balance-result">
+        <div class="balance-result-text">
+          Por cada peso que CDO genera, la empresa pone <strong>$1.89</strong> de su bolsillo. La diferencia anual es <strong>la pérdida real</strong> que hoy no aparece en ningún reporte oficial.
+        </div>
+        <div class="balance-result-num">−$349,972</div>
+      </div>
+    </div>
+
+    <!-- DUAL VIEW: Oficial vs Real -->
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:26px;margin:48px 0 18px;" class="reveal">El mismo balance, dos lecturas</h3>
+    <p style="font-size:16px;color:var(--ink-2);max-width:820px;margin-bottom:24px;" class="reveal">Dependiendo de qué costos cuentes, CDO parece rentable o pierde dramáticamente. Las dos cifras existen al mismo tiempo dentro de la organización.</p>
+
+    <div class="dual-view reveal">
+      <div class="dual-view-col">
+        <div class="dual-head">Lectura oficial · contabilidad directa</div>
+        <div class="dual-formula">
+          $393,744 <span class="op">−</span> $350,669 <span class="op">=</span>
+        </div>
+        <div class="dual-result-lab">Ganancia aparente</div>
+        <div class="dual-result-num pos">+$43,075</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-3);margin-top:14px;">Margen oficial: +10.9%</div>
+        <p style="font-size:14px;color:var(--ink-2);margin-top:16px;line-height:1.55;">Esta es la cifra que el sistema interno reporta. Sostiene la percepción de que CDO es el producto más rentable de la redacción.</p>
+      </div>
+      <div class="dual-view-col dark">
+        <div class="dual-head">Lectura completa · todos los costos</div>
+        <div class="dual-formula" style="color:var(--bg);">
+          $393,744 <span class="op">−</span> $743,716 <span class="op">=</span>
+        </div>
+        <div class="dual-result-lab">Pérdida real</div>
+        <div class="dual-result-num neg">−$349,972</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(242,239,231,.5);margin-top:14px;">Margen real: −88.9%</div>
+        <p style="font-size:14px;color:rgba(242,239,231,.7);margin-top:16px;line-height:1.55;">Esta es la cifra que la empresa absorbe sin nombrarla. El equipo trabaja, las facturas se pagan, pero el agujero queda invisible en los reportes.</p>
+      </div>
+    </div>
+
+    <div class="alert-box reveal" style="margin-top:48px;">
+      <p>La discusión no es <strong>si CDO genera ingresos</strong>. Los genera, y crecientes. La discusión es si esos ingresos <strong>cubren lo que realmente cuesta producirlo</strong>. Con la contabilidad oficial, sí. Con la contabilidad completa, ni cerca.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · COSTOS NO MONETIZABLES -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">06 · Lo no monetizable</div>
+    <h2 class="section-title display reveal">Lo que no aparece<br>en ningún número.</h2>
+    <p class="section-lead reveal">Hay un conjunto adicional de costos que no se pueden poner en una tabla pero que la organización paga. Tienen forma de desgaste humano, conflictos internos, oportunidades perdidas. Cada uno tiene una factura invisible que no aparece en ninguna nómina.</p>
+
+    <div class="invisible-grid reveal">
+      <div class="invisible-cell">
+        <div class="inv-icon">i.</div>
+        <div class="inv-title">Coordinación que deja de hacer 360</div>
+        <div class="inv-desc">Cuando CDO entra en sus 14 semanas activas, <strong>la coordinación deja proyectos digitales, deja seguimientos, deja iniciativas que estaban en marcha</strong>. El costo: oportunidades editoriales que no ocurren, productos digitales que no avanzan, alianzas que se enfrían.</div>
+      </div>
+      <div class="invisible-cell">
+        <div class="inv-icon">ii.</div>
+        <div class="inv-title">Cierres en horario que castiga</div>
+        <div class="inv-desc">Las ediciones críticas ocurren <strong>en horarios donde el cuerpo y la mente rinden peor</strong>. Nocturnos, fines de semana, jornadas extendidas. La calidad final paga el costo, pero también el equipo que se quema.</div>
+      </div>
+      <div class="invisible-cell">
+        <div class="inv-icon">iii.</div>
+        <div class="inv-title">Autoventas no diferenciadas</div>
+        <div class="inv-desc">Porcentaje no medido. Si una parte significativa del ingreso publicitario son <strong>autoventas de la propia casa</strong> (anunciantes vinculados al grupo), el ingreso real es menor del que aparece. Es un asterisco que pendiente cuantificar pero que existe.</div>
+      </div>
+      <div class="invisible-cell">
+        <div class="inv-icon">iv.</div>
+        <div class="inv-title">Vanguardia absorbe la nómina del equipo</div>
+        <div class="inv-desc">La empresa <strong>paga la nómina del equipo durante al menos seis meses</strong> mientras se produce CDO, sin atribuirla al producto. Esto sostiene una contabilidad cómoda, pero invisibiliza la pregunta real: ¿qué pasaría si esa nómina se dirigiera a otros productos con mejor retorno?</div>
+      </div>
+    </div>
+
+    <div class="alert-box reveal">
+      <p>Incluso si CDO fuera rentable financieramente —no lo es—, el <strong>costo humano y organizacional sostenido durante 14 semanas al año</strong> sería razón suficiente para revisar el formato. Hoy ese costo se paga pero no se nombra.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DECISION QUOTE — Pivot -->
+<section class="decision-quote">
+  <div class="container">
+    <div class="decision-eyebrow reveal">El punto de inflexión</div>
+    <h2 class="decision-text reveal">
+      Tres caminos.<br>
+      <span class="acc">Una decisión.</span>
+    </h2>
+    <div class="decision-foot reveal">— Vanguardia MX · Coordinación de Innovación Editorial · Dic 2025</div>
+  </div>
+</section>
+
+<!-- 05 · LAS TRES OPCIONES -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">07 · Los tres caminos posibles</div>
+    <h2 class="section-title display reveal">¿Qué hacemos con CDO?</h2>
+    <p class="section-lead reveal">No hay una respuesta correcta. Hay tres caminos posibles con sus números, sus condiciones y sus consecuencias. Cada uno responde a una pregunta editorial diferente sobre qué es Vanguardia, qué activos protegemos y qué estamos dispuestos a sostener.</p>
+
+    <div class="paths-grid reveal">
+      <!-- PATH A · TRIMESTRAL CORTO -->
+      <div class="path-card path-A">
+        <div class="path-head">
+          <div class="path-letter">A</div>
+          <div class="path-tag">Reformular · Frecuencia</div>
+          <div class="path-name">Trimestral <em>corto</em>.<br>4 ediciones de 28-32 págs.</div>
+        </div>
+        <div class="path-body">
+          <div class="path-mini-stats">
+            <div class="path-mini"><div class="l">Ediciones/año</div><div class="v">4</div></div>
+            <div class="path-mini"><div class="l">Páginas c/u</div><div class="v">28-32</div></div>
+          </div>
+
+          <div>
+            <div class="path-section-title">Qué cambia</div>
+            <ul class="path-list">
+              <li><strong>Menos perfiles</strong> por edición (6-8 vs 29 anuales)</li>
+              <li><strong>Más contenido patrocinado</strong> y secciones temáticas</li>
+              <li><strong>Mayor variedad</strong>: nearshoring lifestyle, belleza positiva, runners, quiet luxury, autos híbridos, XV años de autor, terrazas y jardines</li>
+              <li><strong>Mejores temporalidades</strong>: ciclos de compra de marca alineados al calendario</li>
+              <li><strong>Una editora full time</strong>: continuidad real, no rotación</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="path-section-title">Qué implica financieramente</div>
+            <ul class="path-list">
+              <li>Impresión total <strong>sube</strong> (4 tirajes vs 1)</li>
+              <li>Fotografía <strong>se mantiene</strong> (similar # perfiles totales)</li>
+              <li>Nómina <strong>se transforma</strong>: editora FT permanente + equipo de soporte reducido pero continuo</li>
+              <li>Ingresos potenciales <strong>suben</strong> por mayor superficie comercial</li>
+              <li>Mejor relación con anunciantes por <strong>presencia recurrente</strong></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="path-section-title">Lo que aún hay que validar</div>
+            <ul class="path-list">
+              <li>Tarifa promedio por inserción en formato corto</li>
+              <li>Apetito real del mercado a 4 ciclos de venta</li>
+              <li>Capacidad operativa de coordinación permanente</li>
+              <li>Diferenciación frente a otros productos del grupo</li>
+            </ul>
+          </div>
+        </div>
+        <div class="path-bottom-result">
+          <div class="path-result-label">Resultado modelado (escenario base)</div>
+          <div class="path-result-val pos">+$111K a +$286K</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-3);margin-top:6px;">Conservador / base · Margen 31–37% · Si las variables comerciales responden</div>
+        </div>
+      </div>
+
+      <!-- PATH B · SEGUIR IGUAL -->
+      <div class="path-card path-B">
+        <div class="path-head">
+          <div class="path-letter">B</div>
+          <div class="path-tag">Continuidad · Sin cambios</div>
+          <div class="path-name">Seguir <em>anual</em>.<br>Sin cambios estructurales.</div>
+        </div>
+        <div class="path-body">
+          <div class="path-mini-stats">
+            <div class="path-mini"><div class="l">Ediciones/año</div><div class="v">1</div></div>
+            <div class="path-mini"><div class="l">Páginas</div><div class="v">~80</div></div>
+          </div>
+
+          <div>
+            <div class="path-section-title">Qué se mantiene</div>
+            <ul class="path-list">
+              <li><strong>Misma operación</strong>, mismo equipo, mismo formato</li>
+              <li><strong>29 perfiles anuales</strong>, 41 contratos publicitarios objetivo</li>
+              <li><strong>14 semanas activas</strong> de producción intensiva</li>
+              <li>La <strong>identidad simbólica</strong> de CDO se preserva</li>
+              <li>Sin disrupción para anunciantes Fundadores</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="path-section-title">Qué implica financieramente</div>
+            <ul class="path-list">
+              <li>Estructura de costos <strong>idéntica a 2025</strong></li>
+              <li>Costos ocultos siguen <strong>sin reconocerse</strong> en el sistema</li>
+              <li>La empresa <strong>sigue absorbiendo</strong> $350K de pérdida real al año</li>
+              <li>Crecimiento marginal de ingresos no <strong>cierra la brecha</strong></li>
+              <li>Subir tarifa +30% solo reduce pérdida, no la elimina</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="path-section-title">Qué se cocina debajo</div>
+            <ul class="path-list">
+              <li>Equipo se sigue <strong>desgastando</strong> en cada ciclo</li>
+              <li>Coordinación pierde 14 semanas para 360</li>
+              <li>Decisiones estratégicas <strong>se posponen</strong> año tras año</li>
+              <li>A 3 años, la pérdida acumulada supera <strong>$1M</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="path-bottom-result">
+          <div class="path-result-label">Resultado modelado</div>
+          <div class="path-result-val neg">−$349,972</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-3);margin-top:6px;">Pérdida real anual · Inviable como ruta sostenida</div>
+        </div>
+      </div>
+
+      <!-- PATH C · DEJAR DE HACER -->
+      <div class="path-card path-C">
+        <div class="path-head">
+          <div class="path-letter">C</div>
+          <div class="path-tag">Cierre · Reinversión</div>
+          <div class="path-name">Cerrar CDO.<br>Reinvertir en <em>otros productos</em>.</div>
+        </div>
+        <div class="path-body">
+          <div class="path-mini-stats">
+            <div class="path-mini"><div class="l">Ediciones</div><div class="v">0</div></div>
+            <div class="path-mini"><div class="l">Recursos libres</div><div class="v pos">$743K</div></div>
+          </div>
+
+          <div>
+            <div class="path-section-title">Qué libera</div>
+            <ul class="path-list">
+              <li><strong>$743K en costos totales</strong> deja de erogarse</li>
+              <li>El equipo (~39 personas) <strong>vuelve a productos digitales</strong></li>
+              <li>14 semanas anuales de coordinación <strong>se redirigen a 360</strong></li>
+              <li>Capacidad para impulsar <strong>productos con mejor ROI</strong>: paywall, newsletters premium, verticales digitales</li>
+              <li>La pérdida anual se transforma en <strong>capacidad operativa</strong></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="path-section-title">Qué se pierde</div>
+            <ul class="path-list">
+              <li><strong>$393K de ingresos publicitarios</strong> directos</li>
+              <li>La <strong>marca CDO</strong> con cuatro años de construcción</li>
+              <li>Relación con <strong>anunciantes Fundadores</strong> premium</li>
+              <li><strong>Identidad simbólica</strong> del medio en segmento A/B</li>
+              <li>Plataforma de relacionamiento con líderes regionales</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="path-section-title">Qué hay que dimensionar</div>
+            <ul class="path-list">
+              <li>Posibilidad de <strong>cerrar con elegancia</strong> (edición de despedida)</li>
+              <li>Plan de migración de <strong>anunciantes premium</strong> a otros formatos</li>
+              <li>Inventario digital alternativo para <strong>el segmento que CDO retiene</strong></li>
+              <li>Comunicación interna y externa del cierre</li>
+            </ul>
+          </div>
+        </div>
+        <div class="path-bottom-result">
+          <div class="path-result-label">Resultado modelado</div>
+          <div class="path-result-val pos">+$349,972</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-3);margin-top:6px;">Recursos que vuelven a la empresa · Financieramente sí, simbólicamente difícil</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COST MODEL TABLE FOR TRIMESTRAL (Path A details) -->
+    <div class="cost-model reveal">
+      <div class="cm-head">Modelado de Trimestral corto · Variables que cambian</div>
+      <div class="cm-sub">Basado en la proyección interna CDO 2026 · 4 ediciones × 28-32 págs · Cifras MXN sin IVA</div>
+
+      <div class="cm-rows">
+        <div class="cm-row head">
+          <div>Línea</div>
+          <div>Anual actual</div>
+          <div>Trimestral corto</div>
+          <div>Variación</div>
+        </div>
+        <div class="cm-row">
+          <div>Impresión (tirajes menores Q1-Q3, principal en Q4)</div>
+          <div>$190,240</div>
+          <div>$145,000</div>
+          <div class="pos">−24%</div>
+        </div>
+        <div class="cm-row">
+          <div>Fotografía (retainer anual + producción optimizada)</div>
+          <div>$127,600</div>
+          <div>$96,000</div>
+          <div class="pos">−25%</div>
+        </div>
+        <div class="cm-row">
+          <div>Nómina editora FT + soporte ajustado</div>
+          <div>$300,600 distribuido</div>
+          <div>$180,000</div>
+          <div class="pos">−40%</div>
+        </div>
+        <div class="cm-row">
+          <div>Hardware · software · oficina prorrateada</div>
+          <div>$92,447</div>
+          <div>$30,000</div>
+          <div class="pos">−68%</div>
+        </div>
+        <div class="cm-row">
+          <div>Gratificaciones · pauta · viáticos (4 ediciones)</div>
+          <div>$25,895</div>
+          <div>$29,000</div>
+          <div class="neg">+12%</div>
+        </div>
+        <div class="cm-row total">
+          <div>COSTO TOTAL ANUAL</div>
+          <div>$743,716</div>
+          <div>~$480,000</div>
+          <div class="pos">−35%</div>
+        </div>
+        <div class="cm-row">
+          <div>Publicidad impresa (4 ciclos × tarifa premium)</div>
+          <div>$339,200</div>
+          <div>$420,000</div>
+          <div class="pos">+24%</div>
+        </div>
+        <div class="cm-row">
+          <div>Venta de producto · ejemplares + bundles</div>
+          <div>$54,272</div>
+          <div>$78,000</div>
+          <div class="pos">+44%</div>
+        </div>
+        <div class="cm-row">
+          <div>Patrocinios temáticos nuevos (nearshoring, runners, etc.)</div>
+          <div>—</div>
+          <div>$140,000</div>
+          <div class="pos">nuevo</div>
+        </div>
+        <div class="cm-row">
+          <div>Programa Fundadores · cuotas anuales</div>
+          <div>—</div>
+          <div>$72,000</div>
+          <div class="pos">nuevo</div>
+        </div>
+        <div class="cm-row">
+          <div>Eventos asociados (2/año en ediciones temáticas)</div>
+          <div>—</div>
+          <div>$56,000</div>
+          <div class="pos">nuevo</div>
+        </div>
+        <div class="cm-row total">
+          <div>INGRESO POTENCIAL</div>
+          <div>$393,472</div>
+          <div>~$766,000</div>
+          <div class="pos">+95%</div>
+        </div>
+        <div class="cm-row total" style="background:var(--positive-soft);">
+          <div>RESULTADO BASE</div>
+          <div class="neg">−$349,972</div>
+          <div class="pos">+$286,000</div>
+          <div class="pos">margen +37%</div>
+        </div>
+        <div class="cm-row total" style="background:var(--warning-soft);">
+          <div>RESULTADO CONSERVADOR</div>
+          <div class="neg">—</div>
+          <div class="warn">+$111,000</div>
+          <div class="warn">margen +31%</div>
+        </div>
+      </div>
+
+      <div class="cm-note">
+        <strong>Lectura honesta:</strong> El escenario base asume que las 6 fuentes de ingreso se activan en proporción media, la nómina se reduce con un equipo núcleo + colaboradores, y los costos de impresión bajan por tirajes más pequeños en Q1-Q3 y principal en Q4. El escenario conservador asume sólo 50% de captura en patrocinios y eventos, manteniendo el resto igual. <strong>En ambos escenarios el resultado es positivo</strong>. La pregunta no es si funciona en el papel, sino si tenemos la operación para sostener 4 ciclos al año con la disciplina que el modelo requiere.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · COMPARATIVA -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">08 · Comparativa cruda</div>
+    <h2 class="section-title display reveal">Los tres caminos,<br>lado a lado.</h2>
+    <p class="section-lead reveal">No solo los números. También lo que cada opción <em>protege</em> y lo que <em>arriesga</em>. Esta tabla está diseñada para discutirse, no para cerrar la conversación.</p>
+
+    <div class="compare-final reveal">
+      <div class="cf-row head">
+        <div>Variable</div>
+        <div class="cf-cell-A">A · Trimestral corto</div>
+        <div class="cf-cell-B">B · Anual sin cambios</div>
+        <div class="cf-cell-C">C · Cerrar y reinvertir</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Ingreso anual proyectado</div>
+        <div class="cf-cell-A cf-num pos">~$766,000</div>
+        <div class="cf-cell-B cf-num">$393,744</div>
+        <div class="cf-cell-C cf-num">$0</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Costo total real proyectado</div>
+        <div class="cf-cell-A cf-num">~$480,000</div>
+        <div class="cf-cell-B cf-num">$743,716</div>
+        <div class="cf-cell-C cf-num pos">$0</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Resultado neto (base)</div>
+        <div class="cf-cell-A cf-num pos">+$286,000</div>
+        <div class="cf-cell-B cf-num neg">−$349,972</div>
+        <div class="cf-cell-C cf-num pos">+$349,972</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Resultado neto (conservador)</div>
+        <div class="cf-cell-A cf-num warn">+$111,000</div>
+        <div class="cf-cell-B cf-num neg">−$349,972</div>
+        <div class="cf-cell-C cf-num pos">+$349,972</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Margen proyectado</div>
+        <div class="cf-cell-A cf-num pos">+31% a +37%</div>
+        <div class="cf-cell-B cf-num neg">−88.9%</div>
+        <div class="cf-cell-C cf-num">n/a</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Recursos liberados / consumidos</div>
+        <div class="cf-cell-A">Equipo núcleo + colaboradores</div>
+        <div class="cf-cell-B">14 semanas de coord. al año</div>
+        <div class="cf-cell-C cf-num pos">$743K liberados</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Marca CDO</div>
+        <div class="cf-cell-A">Se transforma — gana presencia</div>
+        <div class="cf-cell-B">Se mantiene como hoy</div>
+        <div class="cf-cell-C">Se pierde tras 4 años</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Relación con anunciantes premium</div>
+        <div class="cf-cell-A">Más oportunidades por ciclo</div>
+        <div class="cf-cell-B">Estable, sin crecimiento</div>
+        <div class="cf-cell-C">Se rompe — requiere plan B</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Carga sobre equipo</div>
+        <div class="cf-cell-A warn">Continua, mejor distribuida</div>
+        <div class="cf-cell-B neg">Picos intensos 14 semanas/año</div>
+        <div class="cf-cell-C pos">Se libera para 360</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Disponibilidad para nuevos productos</div>
+        <div class="cf-cell-A">Baja — equipo concentrado en CDO</div>
+        <div class="cf-cell-B">Media — solo fuera de ventana CDO</div>
+        <div class="cf-cell-C pos">Alta — capacidad redirigible total</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Riesgo principal</div>
+        <div class="cf-cell-A warn">Mercado no capta 6 fuentes de ingreso</div>
+        <div class="cf-cell-B neg">Pérdida acumulada >$1M a 3 años</div>
+        <div class="cf-cell-C warn">Pérdida simbólica · efecto en marca</div>
+      </div>
+      <div class="cf-row metric">
+        <div class="l">Horizonte de validación</div>
+        <div class="cf-cell-A">4 ediciones para datos reales</div>
+        <div class="cf-cell-B">Indefinido — ya tenemos los datos</div>
+        <div class="cf-cell-C">12-18 meses para reposicionar</div>
+      </div>
+      <div class="cf-row verdict">
+        <div>VEREDICTO</div>
+        <div>Cruza al positivo si las 6 fuentes responden. Convierte CDO en negocio.</div>
+        <div>Pérdida insostenible si la contabilidad es completa.</div>
+        <div>Financieramente clara. Simbólicamente costosa.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Fraunces',serif;font-style:italic;font-size:28px;margin:64px 0 24px;" class="reveal">Las preguntas que la conversación debe responder</h3>
+
+    <div class="tradeoffs-list reveal">
+      <div class="tradeoff">
+        <div class="to-num">01</div>
+        <div class="to-q">¿Qué entiende Vanguardia por <em>producto rentable</em>?</div>
+        <div class="to-side pro"><span class="ml">El argumento de fondo</span>Si la rentabilidad se mide con costos directos, CDO es viable. Si se mide con contabilidad completa, no. Esta es una decisión sobre cómo se contabilizan los productos editoriales en la casa.</div>
+      </div>
+      <div class="tradeoff">
+        <div class="to-num">02</div>
+        <div class="to-q">¿Cuánto vale la <em>identidad simbólica</em> que CDO representa?</div>
+        <div class="to-side pro"><span class="ml">Lo que dice CDO de Vanguardia</span>CDO posiciona al medio en segmento A/B, le da relacionamiento premium y construye marca editorial. Eso no aparece en P&L pero está en la mesa cada vez que se negocia con un anunciante grande.</div>
+      </div>
+      <div class="tradeoff">
+        <div class="to-num">03</div>
+        <div class="to-q">¿Qué productos podrían absorber esos <em>$743K liberados</em>?</div>
+        <div class="to-side con"><span class="ml">La pregunta C completa</span>Cerrar CDO solo tiene sentido si hay un plan claro de reinversión. Paywall 2027, newsletters premium, verticales digitales, modelo de membresía. Sin destino concreto, los recursos se diluyen.</div>
+      </div>
+      <div class="tradeoff">
+        <div class="to-num">04</div>
+        <div class="to-q">¿El mercado regional <em>premium</em> tolera 4 ciclos al año?</div>
+        <div class="to-side con"><span class="ml">La pregunta A completa</span>La estructura comercial actual está diseñada para una venta anual. Cambiar a trimestral implica negociar 4 veces con cada anunciante. Hay que validar si los Fundadores se quedan en ese ritmo o si lo perciben como inflación de impactos.</div>
+      </div>
+      <div class="tradeoff">
+        <div class="to-num">05</div>
+        <div class="to-q">¿Cuál es el costo de <em>no decidir</em>?</div>
+        <div class="to-side con"><span class="ml">El default es B</span>Si no se toma una decisión activa, se elige B por inercia. Y B significa absorber $350K de pérdida cada año, durante todo el tiempo que tome ponernos de acuerdo. El reloj corre con o sin decisión.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="closing">
+  <div class="container">
+    <div class="closing-eyebrow reveal">Cierre · Una conversación, no una respuesta</div>
+    <h2 class="closing-q reveal">
+      CDO no fracasó.<br>
+      <span class="acc">La forma en que lo contamos sí.</span>
+    </h2>
+
+    <p class="closing-body reveal">
+      El producto funciona. Las plumas funcionan. Los perfiles funcionan. Los anunciantes responden. Lo que <strong>no funciona</strong> es la contabilidad: estamos tomando el ingreso publicitario como ganancia y no lo es. Apenas cubre la mitad del costo verdadero. La diferencia la paga la casa, en silencio, cada año.
+    </p>
+
+    <p class="closing-body reveal">
+      Las tres opciones que tenemos por delante —reformular, sostener, cerrar— responden a preguntas distintas sobre qué tipo de medio queremos ser. <strong>No hay una respuesta técnica</strong>. Hay una decisión editorial, estratégica y comercial que solo se puede tomar entre quienes tienen la mesa completa.
+    </p>
+
+    <!-- PROBLEMA COLECTIVO · DE NEGOCIO -->
+    <div style="background:rgba(210,55,30,.1); border-left:4px solid var(--accent); padding:48px 56px; margin:64px 0; max-width:1080px;" class="reveal">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:24px;">Un punto importante antes de cualquier conversación</div>
+      <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(24px,3.2vw,40px);line-height:1.2;letter-spacing:-0.02em;color:var(--bg);margin-bottom:24px;">
+        Esto <span style="color:var(--accent);">no es un problema de un área</span>, ni de un equipo, ni de un liderazgo en particular.
+      </p>
+      <p style="font-size:18px;line-height:1.6;color:rgba(242,239,231,.85);">
+        Es un problema <strong style="color:var(--accent);">conjunto, colectivo, de negocio</strong>. Atraviesa editorial, comercial, dirección, administración, producción, diseño y operaciones. Cada decisión sobre CDO toca a varias áreas a la vez. Nadie, individualmente, puede resolverlo. Nadie, individualmente, lo causó. Por eso necesita ser mirado <strong style="color:var(--bg);">con enfoque de negocios</strong>: con la mesa completa, con datos compartidos, con horizonte común. Si lo abordamos como problema de un departamento o de una persona, ninguna salida va a funcionar.
+      </p>
+    </div>
+
+    <div style="border-top:1px solid rgba(242,239,231,.2); padding-top:48px; margin-top:48px;" class="reveal">
+      <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(28px,4vw,52px);line-height:1.15;color:var(--bg);max-width:1080px;letter-spacing:-0.02em;">
+        Lo único que no podemos seguir haciendo es <span style="color:var(--accent);">no decidir</span>.
+      </p>
+    </div>
+
+    <!-- TEMAS POSIBLES — si se elige el camino A -->
+    <div class="themes-section">
+      <div class="themes-eyebrow reveal">Apéndice · Si elegimos el camino A</div>
+      <h3 class="themes-head reveal">Hay <span class="acc">temas suficientes</span> para alimentar 4 ediciones al año, con frescura y diferencia.</h3>
+      <p class="themes-lead reveal">Lo que sigue es un universo temático posible, no una asignación cerrada. Cada uno es una conversación con un anunciante distinto, una temporada diferente del año, una audiencia con apetito propio. La discusión editorial debería decidir cuáles entran a las primeras ediciones y cuáles esperan.</p>
+
+      <h4 class="universe-themes-title reveal">Una posible programación anual · 4 ediciones</h4>
+      <div class="quarterly-themes reveal">
+        <div class="qt-card">
+          <div class="qt-num">Q1</div>
+          <div class="qt-quarter">Enero · Marzo</div>
+          <div class="qt-theme">Wellness &amp; Renacer</div>
+          <div class="qt-desc">Belleza positiva, runners &amp; fit persons, detox digital, el lujo de dormir bien. Edición de propósitos, hábitos y bienestar premium para arrancar el año.</div>
+        </div>
+        <div class="qt-card">
+          <div class="qt-num">Q2</div>
+          <div class="qt-quarter">Abril · Junio</div>
+          <div class="qt-theme">Habitar &amp; Construir</div>
+          <div class="qt-desc">Interiorismo y diseño, domótica inteligente, terrazas, jardines y vida exterior, autos híbridos premium y de colección. Edición del espacio que habitamos, el coche que conducimos, el patio donde vivimos.</div>
+        </div>
+        <div class="qt-card">
+          <div class="qt-num">Q3</div>
+          <div class="qt-quarter">Julio · Septiembre</div>
+          <div class="qt-theme">Identidad &amp; Comunidad</div>
+          <div class="qt-desc">Pride &amp; Proud, petlovers &amp; familia, deportes de networking, nearshoring lifestyle. Edición de quiénes somos, con quién compartimos, dónde construimos red.</div>
+        </div>
+        <div class="qt-card">
+          <div class="qt-num">Q4</div>
+          <div class="qt-quarter">Octubre · Diciembre</div>
+          <div class="qt-theme">Lujo &amp; Celebración</div>
+          <div class="qt-desc">Quiet luxury y estatus, turismo de silencio, XV años, bodas y fiestas de autor. La edición premium tradicional que mantiene la identidad histórica de CDO en el cierre de año.</div>
+        </div>
+      </div>
+
+      <h4 class="universe-themes-title reveal">Universo temático completo · 16 ejes editoriales</h4>
+      <p class="universe-themes-sub reveal">Pueden combinarse, rotarse y mezclarse libremente en cada edición. Lo importante es que <em>cada uno tiene un anunciante natural, un calendario propio y una audiencia con apetito específico</em>.</p>
+
+      <div class="universe-themes-grid reveal">
+        <div class="ut-cell"><div class="ut-name">Nearshoring lifestyle</div><div class="ut-tag">Q3 · Negocios</div></div>
+        <div class="ut-cell"><div class="ut-name">Belleza positiva</div><div class="ut-tag">Q1 · Wellness</div></div>
+        <div class="ut-cell"><div class="ut-name">Deportes de networking</div><div class="ut-tag">Q3 · Comunidad</div></div>
+        <div class="ut-cell"><div class="ut-name">Domótica inteligente</div><div class="ut-tag">Q2 · Hogar</div></div>
+        <div class="ut-cell"><div class="ut-name">Petlovers &amp; familia</div><div class="ut-tag">Q3 · Familia</div></div>
+        <div class="ut-cell"><div class="ut-name">El lujo de dormir bien</div><div class="ut-tag">Q1 · Wellness</div></div>
+        <div class="ut-cell"><div class="ut-name">Runners &amp; fit persons</div><div class="ut-tag">Q1 · Wellness</div></div>
+        <div class="ut-cell"><div class="ut-name">Pride &amp; Proud</div><div class="ut-tag">Q3 · Identidad</div></div>
+        <div class="ut-cell"><div class="ut-name">Detox digital</div><div class="ut-tag">Q1 · Wellness</div></div>
+        <div class="ut-cell"><div class="ut-name">Quiet luxury y estatus</div><div class="ut-tag">Q4 · Lujo</div></div>
+        <div class="ut-cell"><div class="ut-name">Turismo de silencio</div><div class="ut-tag">Q4 · Lujo</div></div>
+        <div class="ut-cell"><div class="ut-name">Interiorismo y diseño</div><div class="ut-tag">Q2 · Hogar</div></div>
+        <div class="ut-cell"><div class="ut-name">Autos híbridos premium</div><div class="ut-tag">Q2 · Movilidad</div></div>
+        <div class="ut-cell"><div class="ut-name">XV años, bodas, fiestas de autor</div><div class="ut-tag">Q4 · Celebración</div></div>
+        <div class="ut-cell"><div class="ut-name">Terrazas, jardines, vida exterior</div><div class="ut-tag">Q2 · Hogar</div></div>
+        <div class="ut-cell"><div class="ut-name">Coleccionismo y patrimonio</div><div class="ut-tag">Q4 · Lujo</div></div>
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-style:italic;font-size:clamp(20px,2.2vw,28px);line-height:1.4;color:rgba(242,239,231,.78);max-width:920px;margin-top:48px;" class="reveal">
+        Cada eje temático es también una <strong style="color:var(--accent);">oportunidad comercial</strong> distinta. CDO anual abre una mesa de negociación al año con cada anunciante. CDO trimestral abre cuatro. Y a cada una llega con un argumento editorial específico, no con la misma propuesta genérica de siempre.
+      </p>
+    </div>
+
+    <div class="closing-meta">
+      <div>VANGUARDIA MX · CDO 2025 — CASO FINANCIERO</div>
+      <div>Análisis interno · Diciembre 2025</div>
+      <div>Coordinación de Innovación Editorial</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('in'), i * 55);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
